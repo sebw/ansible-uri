@@ -1,0 +1,14 @@
+---
+- name: call an API endpoint
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: ping the API
+    uri:
+      url: https://ip.wains.be/ping.php
+      method: GET
+      return_content: yes
+    register: output
+  - name: display output
+    debug:
+      var: output.content
