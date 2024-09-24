@@ -5,8 +5,11 @@
   tasks:
   - name: ping the API
     uri:
-      url: https://ip.wains.be/ping.php
-      method: GET
+      url: https://api.labo.ovh/anything
+      body:
+        message: "Hello world"
+      body_format: json 
+      method: POST
       return_content: yes
     register: output
   - name: display output
